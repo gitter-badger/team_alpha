@@ -1,0 +1,22 @@
+// основной шаблон
+
+doctype html
+include include/_var.jade
+include include/_mixin.jade
+
+html
+	head
+		include include/_head.jade
+	body
+		.header_img
+			include include/_header.jade
+
+		.bx_rb
+			.item_info_section
+				.bx_item_description.gr-wr
+					block content
+			
+		.footer_img
+			include include/_footer.jade
+
+	include include/_footer-js.jade

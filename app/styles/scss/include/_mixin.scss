@@ -1,0 +1,89 @@
+/*mixin*/
+
+// Clearfix
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+	-webkit-box-sizing: $boxmodel;
+	-moz-box-sizing: $boxmodel;
+	box-sizing: $boxmodel;
+}
+
+// Центрированный контейнер с фиксированным размером
+@mixin container-fixed($gutter: 0) {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: ($gutter / 2);
+	padding-right: ($gutter / 2);
+	@include clearfix;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+	background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+	background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+	-webkit-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin box-shadow($left, $top, $blur, $color) {
+	-moz-box-shadow: $left $top $blur $color;
+	-webkit-box-shadow: $left $top $blur $color;
+	box-shadow: $left $top $blur $color;
+}
+@mixin box-shadowi($left, $top, $blur, $color) {
+	-moz-box-shadow: $left $top $blur $color inset;
+	-webkit-box-shadow: $left $top $blur $color inset;
+	box-shadow: $left $top $blur $color inset;
+}
+
+/*для ie6-7*/
+@mixin cross-browser-inline-block {
+	display: inline-block; /* For normal, healthy browsers */
+
+	* html & { /* for IE6 */
+		display: inline;
+	}
+
+	*+html & { /* for IE7 */
+		display: inline;
+	}
+}

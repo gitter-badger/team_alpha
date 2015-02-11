@@ -1,0 +1,27 @@
+// блок мотивация
+mixin motiv(text)
+	.gr-row
+		.gr-fz.gr-ctr.gr-midl.
+			#{text}
+		.gr-trigl-left
+		.gr-trigl-right
+
+// форма захвата
+mixin form_z
+	.gr-row
+		.gr-fz
+			.gr-question Есть вопросы?
+			div Задайте их менеджеру &#151
+			a(href="tel:+7(495)410-57-77")
+				span.gr-code 8 (495)
+				span.gr-number 410-57-77
+			span или
+			.gr-callBack закажите обратный звонок
+		.gr-trigl-left
+		.gr-trigl-right
+
+// акцию
+mixin alziya (text, akziya)
+	.gr-action
+		span #{text}
+		#{akziya}
