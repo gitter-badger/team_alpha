@@ -33,17 +33,6 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest('app/'))
 });
 
-
-// компилировать scss в сss
-gulp.task('sass', function () {
-	gulp.src('app/styles/scss/*.scss')
-		.pipe(sass())
-		.pipe(autoprefixer({
-			browsers: ['> 1%']
-		}))
-		.pipe(gulp.dest('app/styles/css/'));
-});
-
 // слежка html изменился презагружаем файл
 gulp.task('html', function () {
 	gulp.src('app/*.html')
@@ -56,7 +45,6 @@ gulp.task('css', function () {
 		.pipe(connect.reload());
 });
 
-
 // JS
 gulp.task('js', function () {
 	gulp.src('./app/scripts/*.js')
@@ -67,7 +55,6 @@ gulp.task('watch', function () {
 	gulp.watch(['app/*.html'], ['html']);
 	gulp.watch(['app/styles/css/*.css'], ['css']);
 	gulp.watch(['app/jade/*.jade'], ['jade']);
-	gulp.watch(['app/styles/scss/*.scss'], ['sass']);
 	gulp.watch(['app/scripts/*.js'], ['js']);
 });
 
